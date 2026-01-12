@@ -1,5 +1,5 @@
 context:
-  version: "2.0.5"
+  version: "2.1.0"
 
 package:
   name: zeem
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mhekkel/zeem/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: cf82135e85c856e700ecaeb0a046769c84827166e6218b34839bf06301466e6f
+  sha256: 8b7998cc732f3220f57bfd9d01964e5aa005bc1288f0c9eee25d38a71c1eb0eb
 
 build:
   number: 0
