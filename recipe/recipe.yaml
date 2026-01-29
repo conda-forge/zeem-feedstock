@@ -1,6 +1,6 @@
 context:
   name: "zeem"
-  version: "2.1.0"
+  version: "2.1.1"
   author: "mhekkel"
 
 package:
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://github.com/${{ author }}/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 8b7998cc732f3220f57bfd9d01964e5aa005bc1288f0c9eee25d38a71c1eb0eb
+  sha256: 4321aecbdd97f650e3cba062a2ce4f61c4b86f7eaa1d13601638d0174f97e9d3
 
 build:
-  number: 3
+  number: 0
   script:
     # Use locally installed Catch2
     - sed -i.bak 's#CPMAddPackage("gh:catchorg/Catch2@3.4.0")#find_package(Catch2 REQUIRED)#' test/CMakeLists.txt
@@ -20,9 +20,9 @@ build:
     - if: unix
       then: |
         set -exo pipefail
-        
+
         export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
-        
+
         if [[ ${build_platform} != ${target_platform} ]]; then
           extra_cmake_args="-DTEST_STD_CHRONO_FROM_STREAM_R=ON -DCMAKE_CROSSCOMPILING=ON"
         fi
