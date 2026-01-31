@@ -21,6 +21,7 @@ build:
       then: |
         set -exo pipefail
 
+        export TZDIR="${BUILD_PREFIX}/share/zoneinfo"
         export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
         if [[ ${build_platform} != ${target_platform} ]]; then
@@ -56,9 +57,10 @@ requirements:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
     - cmake
+    - pkg-config
+    - tzdata
     - if: unix
       then: make
-    - pkg-config
     - if: win
       then:
         - jom
@@ -67,8 +69,6 @@ requirements:
     - catch2
     - fast_float
     - howardhinnant_date
-    - if: build_platform != target_platform
-      then: tzdata
   run_exports:
     # Patch version update may be breakable
     - ${{ pin_subpackage(name, upper_bound="x.x.x") }}
