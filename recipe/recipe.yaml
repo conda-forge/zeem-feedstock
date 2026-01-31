@@ -63,6 +63,8 @@ requirements:
       then:
         - jom
         - m2-sed
+    - if: build_platform != target_platform
+      then: tzdata
   host:
     - catch2
     - fast_float
