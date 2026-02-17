@@ -1,6 +1,6 @@
 context:
   name: "zeem"
-  version: "2.1.1"
+  version: "2.1.2"
   author: "mhekkel"
 
 package:
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://github.com/${{ author }}/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 4321aecbdd97f650e3cba062a2ce4f61c4b86f7eaa1d13601638d0174f97e9d3
+  sha256: 548c1c133cb6cfd726a5613b6840e04a6cb7ba101e48ca0b935586a7f314611c
 
 build:
-  number: 1
+  number: 0
   script:
     # Use locally installed Catch2
     - sed -i.bak 's#CPMAddPackage("gh:catchorg/Catch2@3.4.0")#find_package(Catch2 REQUIRED)#' test/CMakeLists.txt
