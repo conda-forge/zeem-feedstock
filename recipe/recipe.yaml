@@ -11,11 +11,14 @@ source:
 
 build:
   number: 0
+  script:
+    interpreter: brush
 
 requirements:
   build:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
+    - brush
     - cmake
     - ninja
     - pkg-config
