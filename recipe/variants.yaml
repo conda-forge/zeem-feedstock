@@ -1,3 +1,9 @@
+c_compiler_version:
+  - if: linux
+    then: "15"
+gcc_compiler_version:
+  - if: linux
+    then: "15"
 cxx_compiler_version:
   - if: linux
     then: "15"
