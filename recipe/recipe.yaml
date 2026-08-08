@@ -15,12 +15,12 @@ build:
     # Use locally installed Catch2
     - sed -i.bak 's#CPMAddPackage("gh:catchorg/Catch2@3.4.0")#find_package(Catch2 REQUIRED)#' test/CMakeLists.txt
 
-    # Fix upstream buf for date serialization test
-    - sed -i.bak -e 's#"%FT%H:%M"#"%Y-%m-%dT%H:%M"#' -e 's#"%FT%T"#"%Y-%m-%dT%H:%M:%S"#' include/zeem/serialize.hpp
-
     - if: unix
       then: |
         set -exo pipefail
+
+        # Fix upstream buf for date serialization test
+        sed -i.bak -e 's#"%FT%H:%M"#"%Y-%m-%dT%H:%M"#' -e 's#"%FT%T"#"%Y-%m-%dT%H:%M:%S"#' include/zeem/serialize.hpp
 
         if [[ ${target_platform} == "osx-"* ]]; then
           # std::chrono::current_zone (C++20 tzdb) requires libc++ 19+ built with
