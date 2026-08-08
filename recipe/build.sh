@@ -20,7 +20,7 @@ if [[ ${build_platform} != ${target_platform} ]]; then
     extra_cmake_args="-DTEST_STD_CHRONO_FROM_STREAM_R=ON -DCMAKE_CROSSCOMPILING=ON"
 fi
 
-cmake -S . -B build ${CMAKE_ARGS} -DBUILD_TESTING=ON -DBUILD_SHARED_LIBS=ON ${extra_cmake_args}
+cmake -S . -B build -G Ninja ${CMAKE_ARGS} -DBUILD_TESTING=ON -DBUILD_SHARED_LIBS=ON ${extra_cmake_args}
 cmake --build build --parallel ${CPU_COUNT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
     ctest -V --test-dir build

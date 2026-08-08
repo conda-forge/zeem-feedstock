@@ -17,12 +17,10 @@ requirements:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
     - cmake
+    - ninja
     - pkg-config
-    - if: unix
-      then: make
     - if: win
       then:
-        - jom
         - m2-sed
   host:
     - catch2

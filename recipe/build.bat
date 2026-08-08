@@ -4,7 +4,7 @@ set PATH=%SRC_DIR%\build\bin;%PATH%
 
 sed -i.bak 's#CPMAddPackage("gh:catchorg/Catch2@3.4.0")#find_package(Catch2 REQUIRED)#' test/CMakeLists.txt || exit /b 1
 
-cmake -S . -B build -G "NMake Makefiles JOM" ^
+cmake -S . -B build -G Ninja ^
     %CMAKE_ARGS% ^
     -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON ^
     -DBUILD_TESTING=ON ^
