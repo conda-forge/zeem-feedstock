@@ -1,5 +1,5 @@
 context:
-  version: "2.1.4"
+  version: "2.1.5"
 
 package:
   name: zeem
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://forge.hekkelman.net/maarten/zeem/archive/v${{ version }}.tar.gz
-  sha256: df8a9a70c7cf644ac0a99f9f953b2b933def6a30bdd08d0717e9adc795a18f72
+  sha256: b4dc9466c49601b511bfd3fcb88e89bba6c2f9eca23934db0a759090b825d1fc
 
 build:
   number: 0
