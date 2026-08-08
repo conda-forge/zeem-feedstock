@@ -16,6 +16,7 @@ requirements:
   build:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
+    - clang-tools
     - cmake
     - ninja
     - pkg-config
