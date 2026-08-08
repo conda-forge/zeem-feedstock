@@ -9,7 +9,7 @@ Package license: BSD-2-Clause
 
 Summary: A C++ Module Library offering a full XML library with validating parser, DOM tree, XPaths and serialization
 
-Development: https://github.com/mhekkel/zeem
+Development: https://forge.hekkelman.net/maarten/zeem
 
 Documentation: https://mhekkel.github.io/zeem
 

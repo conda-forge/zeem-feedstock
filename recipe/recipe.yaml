@@ -1,5 +1,5 @@
 context:
-  version: "2.1.3"
+  version: "2.1.4"
 
 package:
   name: zeem
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://forge.hekkelman.net/maarten/zeem/archive/v${{ version }}.tar.gz
-  sha256: 68ffc2a96e6006a22f58a6e0f50e5553df835c79dc3cd38ad9242e0b4eac6aeb
+  sha256: df8a9a70c7cf644ac0a99f9f953b2b933def6a30bdd08d0717e9adc795a18f72
 
 build:
   number: 0
@@ -90,7 +90,7 @@ tests:
 
 about:
   homepage: https://mhekkel.github.io/zeem
-  repository: https://github.com/mhekkel/zeem
+  repository: https://forge.hekkelman.net/maarten/zeem
   documentation: https://mhekkel.github.io/zeem
   license: BSD-2-Clause
   license_file: LICENSE
