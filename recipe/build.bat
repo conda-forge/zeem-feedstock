@@ -2,8 +2,6 @@
 
 set PATH=%SRC_DIR%\build;%PATH%
 
-sed -i "/#include <cassert>/a #include <array>" test/schema-test.cpp || exit /b 1
-
 cmake -S . -B build -G Ninja ^
     %CMAKE_ARGS% ^
     -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON ^
