@@ -16,10 +16,12 @@ requirements:
   build:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
-    - clang-tools
     - cmake
     - ninja
     - pkg-config
+    - if: osx
+      then:
+        - clang-tools
     - if: win
       then:
         - m2-sed
