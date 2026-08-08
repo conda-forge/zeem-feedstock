@@ -1,8 +1,7 @@
 @echo on
 
-set PATH=%SRC_DIR%\build\bin;%PATH%
+set PATH=%SRC_DIR%\build;%PATH%
 
-sed -i "s#CPMAddPackage("gh:catchorg/Catch2@3.4.0")#find_package(Catch2 REQUIRED)#" test/CMakeLists.txt || exit /b 1
 sed -i "/#include <cassert>/a #include <array>" test/schema-test.cpp || exit /b 1
 
 cmake -S . -B build -G Ninja ^
