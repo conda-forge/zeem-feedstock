@@ -19,7 +19,11 @@ build:
       then: |
         set -exo pipefail
 
-        export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+        # std::chrono::current_zone (C++20 tzdb) requires libc++ 19+ built with
+        # experimental library support (-fexperimental-library) and a deployment
+        # target new enough to satisfy Apple's availability checks
+        # (bypassed here via `-D_LIBCPP_DISABLE_AVAILABILITY`).
+        export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY -fexperimental-library"
 
         if [[ ${build_platform} != ${target_platform} ]]; then
           extra_cmake_args="-DTEST_STD_CHRONO_FROM_STREAM_R=ON -DCMAKE_CROSSCOMPILING=ON"
