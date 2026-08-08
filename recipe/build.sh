@@ -1,8 +1,5 @@
 set -exo pipefail
 
-# Use locally installed Catch2
-sed -i.bak 's#CPMAddPackage("gh:catchorg/Catch2@3.4.0")#find_package(Catch2 REQUIRED)#' test/CMakeLists.txt
-
 if [[ ${target_platform} == "osx-"* ]]; then
     # std::chrono::current_zone (C++20 tzdb) requires libc++ 19+ built with
     # experimental library support (-fexperimental-library) and a deployment
