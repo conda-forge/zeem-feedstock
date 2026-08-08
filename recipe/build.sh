@@ -9,11 +9,6 @@ if [[ ${target_platform} == "osx-"* ]]; then
     # target new enough to satisfy Apple's availability checks
     # (bypassed here via `-D_LIBCPP_DISABLE_AVAILABILITY`).
     export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY -fexperimental-library"
-
-    # std::chrono::from_stream on libc++ has an unresolved bug parsing
-    # "%FT%H:%M" (seconds-omitted) into system_clock::time_point;
-    # Linux (libstdc++) and Windows (MSVC STL) parse this correctly.
-    #sed -i.bak 's|TEST_CASE("test_time_4")|TEST_CASE("test_time_4", "[!mayfail]")|' test/serializer-test.cpp
 fi
 
 if [[ ${build_platform} != ${target_platform} ]]; then
