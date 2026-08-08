@@ -15,6 +15,9 @@ build:
     # Use locally installed Catch2
     - sed -i.bak 's#CPMAddPackage("gh:catchorg/Catch2@3.4.0")#find_package(Catch2 REQUIRED)#' test/CMakeLists.txt
 
+    # Fix upstream buf for date serialization test
+    - sed -i.bak 's#"%FT%H:%M"#"%Y-%m-%dT%H:%M"#' include/zeem/serialize.hpp
+
     - if: unix
       then: |
         set -exo pipefail
