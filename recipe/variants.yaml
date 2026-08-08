@@ -1,3 +1,3 @@
 c_stdlib_version:
-  - if: osx  # macOS/libc++ older than 13.0 may not support std::chrono::current_zone()
-    then: "13.0"
+  - if: osx  # macOS/libc++ older than 15.0 may not support std::chrono::current_zone()
+    then: "15.0"
