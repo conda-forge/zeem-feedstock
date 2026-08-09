@@ -1,4 +1,4 @@
-set +o nounset
+set -exo pipefail
 
 if [[ ${target_platform} == "osx-"* ]]; then
     # std::chrono::current_zone (C++20 tzdb) requires libc++ 19+ built with
@@ -8,18 +8,11 @@ if [[ ${target_platform} == "osx-"* ]]; then
     export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY -fexperimental-library"
 fi
 
-EXTRA_CMAKE_ARGS=
-if [[ ${target_platform} == "win-"* ]]; then
-    cp "${SRC_DIR}/build/zeem.dll" "${SRC_DIR}/build/test/"
-    cp "${SRC_DIR}/build/zeem.dll" "${SRC_DIR}/build/examples/"
-    EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON"
-fi
-
 if [[ ${build_platform} != ${target_platform} ]]; then
-    EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DTEST_STD_CHRONO_FROM_STREAM_R=ON -DCMAKE_CROSSCOMPILING=ON"
+    extra_cmake_args="-DTEST_STD_CHRONO_FROM_STREAM_R=ON -DCMAKE_CROSSCOMPILING=ON"
 fi
 
-cmake -S . -B build -G Ninja ${CMAKE_ARGS} -DBUILD_TESTING=ON -DBUILD_SHARED_LIBS=ON ${EXTRA_CMAKE_ARGS}
+cmake -S . -B build -G Ninja ${CMAKE_ARGS} -DBUILD_TESTING=ON -DBUILD_SHARED_LIBS=ON ${extra_cmake_args}
 cmake --build build --parallel ${CPU_COUNT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
     ctest -V --test-dir build
