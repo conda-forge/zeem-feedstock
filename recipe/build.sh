@@ -8,7 +8,7 @@ fi
 
 EXTRA_CMAKE_ARGS=
 if [[ ${target_platform} == "win-"* ]]; then
-    export PATH=${SRC_DIR}/build:${PATH}
+    export PATH="${SRC_DIR}/build:${PATH}"
     EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON"
 fi
 
