@@ -10,7 +10,8 @@ fi
 
 EXTRA_CMAKE_ARGS=
 if [[ ${target_platform} == "win-"* ]]; then
-    export PATH="${SRC_DIR}/build:${PATH}"
+    cp "${SRC_DIR}/build/zeem.dll" "${SRC_DIR}/build/test/"
+    cp "${SRC_DIR}/build/zeem.dll" "${SRC_DIR}/build/examples/"
     EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON"
 fi
 
