@@ -12,7 +12,7 @@ source:
 build:
   number: 1
   script:
-    interpereter: brush
+    interpreter: brush
     file: build.sh
 
 requirements:
