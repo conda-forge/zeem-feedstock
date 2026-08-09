@@ -1,5 +1,5 @@
-About zeem-feedstock
-====================
+About libzeem-feedstock
+=======================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/zeem-feedstock/blob/main/LICENSE.txt)
 
@@ -75,12 +75,12 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-zeem-green.svg)](https://anaconda.org/conda-forge/zeem) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/zeem.svg)](https://anaconda.org/conda-forge/zeem) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/zeem.svg)](https://anaconda.org/conda-forge/zeem) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/zeem.svg)](https://anaconda.org/conda-forge/zeem) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libzeem-green.svg)](https://anaconda.org/conda-forge/libzeem) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libzeem.svg)](https://anaconda.org/conda-forge/libzeem) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libzeem.svg)](https://anaconda.org/conda-forge/libzeem) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libzeem.svg)](https://anaconda.org/conda-forge/libzeem) |
 
-Installing zeem
-===============
+Installing libzeem
+==================
 
-Installing `zeem` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `libzeem` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -94,7 +94,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install zeem
+conda install libzeem
 ```
 
 </details>
@@ -103,7 +103,7 @@ conda install zeem
 <summary>With mamba</summary>
 
 ```
-mamba install zeem
+mamba install libzeem
 ```
 
 </details>
@@ -113,9 +113,9 @@ mamba install zeem
 
 ```
 # for adding to your local project
-pixi add zeem
+pixi add libzeem
 # for installing globally
-pixi global install zeem
+pixi global install libzeem
 ```
 
 </details>
@@ -123,13 +123,13 @@ pixi global install zeem
 Search package versions
 -----------------------
 
-It is possible to list all of the versions of `zeem` available on your platform:
+It is possible to list all of the versions of `libzeem` available on your platform:
 
 <details>
 <summary>With conda</summary>
 
 ```
-conda search zeem --channel conda-forge
+conda search libzeem --channel conda-forge
 ```
 
 </details>
@@ -138,7 +138,7 @@ conda search zeem --channel conda-forge
 <summary>With mamba</summary>
 
 ```
-mamba search zeem --channel conda-forge
+mamba search libzeem --channel conda-forge
 ```
 
 </details>
@@ -147,7 +147,7 @@ mamba search zeem --channel conda-forge
 <summary>With pixi</summary>
 
 ```
-pixi search zeem --channel conda-forge
+pixi search libzeem --channel conda-forge
 ```
 
 </details>
@@ -157,13 +157,13 @@ pixi search zeem --channel conda-forge
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search zeem --channel conda-forge
+mamba repoquery search libzeem --channel conda-forge
 
-# List packages depending on `zeem`:
-mamba repoquery whoneeds zeem --channel conda-forge
+# List packages depending on `libzeem`:
+mamba repoquery whoneeds libzeem --channel conda-forge
 
-# List dependencies of `zeem`:
-mamba repoquery depends zeem --channel conda-forge
+# List dependencies of `libzeem`:
+mamba repoquery depends libzeem --channel conda-forge
 ```
 
 </details>
@@ -210,17 +210,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating zeem-feedstock
-=======================
+Updating libzeem-feedstock
+==========================
 
-If you would like to improve the zeem recipe or build a new
+If you would like to improve the libzeem recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/zeem-feedstock are
+Note that all branches in the conda-forge/libzeem-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
