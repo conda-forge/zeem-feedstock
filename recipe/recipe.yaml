@@ -10,12 +10,16 @@ source:
   sha256: 006c7954b48061b86f61cb9988b32013e0c3729ce133cec4068231278b004854
 
 build:
-  number: 0
+  number: 1
+  script:
+    interpereter: brush
+    file: build.sh
 
 requirements:
   build:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
+    - brush
     - cmake
     - ninja
     - pkg-config
@@ -46,9 +50,9 @@ tests:
     strict: true
 
 about:
-  homepage: https://mhekkel.github.io/zeem
+  homepage: https://www.hekkelman.net/docs/libzeem/
   repository: https://forge.hekkelman.net/maarten/zeem
-  documentation: https://mhekkel.github.io/zeem
+  documentation: https://www.hekkelman.net/docs/libzeem/
   license: BSD-2-Clause
   license_file: LICENSE
   summary: "A C++ Module Library offering a full XML library with validating parser, DOM tree, XPaths and serialization"
