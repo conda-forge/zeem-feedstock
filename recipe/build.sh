@@ -10,7 +10,7 @@ fi
 
 EXTRA_CMAKE_ARGS=
 if [[ ${target_platform} == "win-"* ]]; then
-    export LD_LIBRARY_PATH="${SRC_DIR}/build:${SRC_DIR}/build/bin:${LD_LIBRARY_PATH}"
+    export PATH="${SRC_DIR}/build:${PATH}"
     EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON"
 fi
 
