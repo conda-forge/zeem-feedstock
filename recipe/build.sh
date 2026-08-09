@@ -17,4 +17,4 @@ cmake --build build --parallel ${CPU_COUNT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
     ctest -V --test-dir build
 fi
-cmake --install build
+cmake --install build --parallel ${CPU_COUNT}

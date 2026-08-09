@@ -11,4 +11,4 @@ cmake -S . -B build -G Ninja ^
 
 cmake --build build --parallel %CPU_COUNT% || exit /b 1
 ctest -V --test-dir build || exit /b 1
-cmake --install build || exit /b 1
+cmake --install build --parallel %CPU_COUNT% || exit /b 1
