@@ -3,7 +3,7 @@ About zeem-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/zeem-feedstock/blob/main/LICENSE.txt)
 
-Home: https://mhekkel.github.io/zeem
+Home: https://www.hekkelman.net/docs/libzeem/
 
 Package license: BSD-2-Clause
 
@@ -11,7 +11,7 @@ Summary: A C++ Module Library offering a full XML library with validating parser
 
 Development: https://forge.hekkelman.net/maarten/zeem
 
-Documentation: https://mhekkel.github.io/zeem
+Documentation: https://www.hekkelman.net/docs/libzeem/
 
 This is a feature complete XML library containing a validating parser as well as a modern C++ API for the data structures.
 It also supports serializing custom data structures.
