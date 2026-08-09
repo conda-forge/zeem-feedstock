@@ -32,7 +32,7 @@ requirements:
     - libmcfp
   run_exports:
     # Patch version update may be breakable
-    - ${{ pin_subpackage("zeem", upper_bound="x.x.x") }}
+    - ${{ pin_subpackage("libzeem", upper_bound="x.x.x") }}
   ignore_run_exports:
     from_package:
       - catch2
