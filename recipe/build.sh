@@ -1,3 +1,5 @@
+set +o nounset
+
 if [[ ${target_platform} == "osx-"* ]]; then
     # std::chrono::current_zone (C++20 tzdb) requires libc++ 19+ built with
     # experimental library support (-fexperimental-library) and a deployment
@@ -8,7 +10,7 @@ fi
 
 EXTRA_CMAKE_ARGS=
 if [[ ${target_platform} == "win-"* ]]; then
-    export PATH="${SRC_DIR}/build:${PATH}"
+    export PATH="${SRC_DIR}/build:${SRC_DIR}/build/bin:${PATH}"
     EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON"
 fi
 
