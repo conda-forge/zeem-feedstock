@@ -59,6 +59,7 @@ outputs:
         - ${{ pin_subpackage("zeem", upper_bound="x.x.x") }}
     tests:
       - script:
+          interpreter: brush
           - if: linux
             then:
               - test -d "${PREFIX}/include/zeem"
