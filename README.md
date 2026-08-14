@@ -76,6 +76,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libzeem-green.svg)](https://anaconda.org/conda-forge/libzeem) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libzeem.svg)](https://anaconda.org/conda-forge/libzeem) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libzeem.svg)](https://anaconda.org/conda-forge/libzeem) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libzeem.svg)](https://anaconda.org/conda-forge/libzeem) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-zeem-green.svg)](https://anaconda.org/conda-forge/zeem) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/zeem.svg)](https://anaconda.org/conda-forge/zeem) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/zeem.svg)](https://anaconda.org/conda-forge/zeem) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/zeem.svg)](https://anaconda.org/conda-forge/zeem) |
 
 Installing libzeem
 ==================
@@ -94,7 +95,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install libzeem
+conda install libzeem zeem
 ```
 
 </details>
@@ -103,7 +104,7 @@ conda install libzeem
 <summary>With mamba</summary>
 
 ```
-mamba install libzeem
+mamba install libzeem zeem
 ```
 
 </details>
@@ -113,9 +114,9 @@ mamba install libzeem
 
 ```
 # for adding to your local project
-pixi add libzeem
+pixi add libzeem zeem
 # for installing globally
-pixi global install libzeem
+pixi global install libzeem zeem
 ```
 
 </details>

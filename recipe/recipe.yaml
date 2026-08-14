@@ -1,49 +1,81 @@
 context:
-  version: "2.3.1"
+  version: "2.3.2"
 
-package:
+recipe:
   name: libzeem
   version: ${{ version }}
 
 source:
   url: https://forge.hekkelman.net/maarten/zeem/archive/v${{ version }}.tar.gz
-  sha256: 09c6f01b5db3f947ac9afc96450cb2a18600921079e80e27ca4ef875bc924adb
+  sha256: e7bdf4dd9d8728de9975d8e89989d31bf5b1ad5beb634c632eeeccda12be4c1b
 
 build:
   number: 0
 
-requirements:
-  build:
-    - ${{ compiler("cxx") }}
-    - ${{ stdlib("c") }}
-    - cmake
-    - ninja
-    - pkg-config
-    - if: osx
-      then:
-        - clang-tools
-    - if: win
-      then:
-        - m2-sed
-  host:
-    - catch2
-    - fast_float
-    - howardhinnant_date
-    - libmcfp
-  run_exports:
-    # Patch version update may be breakable
-    - ${{ pin_subpackage("libzeem", upper_bound="x.x.x") }}
-  ignore_run_exports:
-    from_package:
-      - catch2
+outputs:
+  - package:
+      name: libzeem
+    build:
+      script: build
+    requirements:
+      build:
+        - ${{ compiler("cxx") }}
+        - ${{ stdlib("c") }}
+        - cmake
+        - ninja
+        - pkg-config
+        - if: osx
+          then:
+            - clang-tools
+        - if: win
+          then:
+            - m2-sed
+      host:
+        - catch2
+        - fast_float
+        - howardhinnant_date
+        - libmcfp
+      run_exports:
+        # Patch version update may be breakable
+        - ${{ pin_subpackage("libzeem", upper_bound="x.x.x") }}
+      ignore_run_exports:
+        from_package:
+          - catch2
+    tests:
+      - package_contents:
+          include:
+            - zeem/*
+          lib:
+            - zeem
+        strict: true
 
-tests:
-  - package_contents:
-      include:
-        - zeem/*
-      lib:
-        - zeem
-    strict: true
+  - package:
+      name: zeem
+    requirements:
+      run:
+        - ${{ pin_subpackage("libzeem", upper_bound="x.x.x") }}
+      run_exports:
+        # Patch version update may be breakable
+        - ${{ pin_subpackage("zeem", upper_bound="x.x.x") }}
+    tests:
+      - script:
+          interpreter: brush
+          content:
+            - if: linux
+              then:
+                - test -d "${PREFIX}/include/zeem"
+                - test -f "${PREFIX}/lib/libzeem.so"
+            - if: osx
+              then:
+                - test -d "${PREFIX}/include/zeem"
+                - test -f "${PREFIX}/lib/libzeem.dylib"
+            - if: win
+              then:
+                - test -d "${LIBRARY_PREFIX}/include/zeem"
+                - test -f "${LIBRARY_PREFIX}/lib/zeem.lib"
+        requirements:
+          run:
+            - brush
 
 about:
   homepage: https://www.hekkelman.net/docs/libzeem/
