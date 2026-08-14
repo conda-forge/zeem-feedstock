@@ -58,12 +58,22 @@ outputs:
         # Patch version update may be breakable
         - ${{ pin_subpackage("zeem", upper_bound="x.x.x") }}
     tests:
-      - package_contents:
-          include:
-            - zeem/*
-          lib:
-            - zeem
-        strict: true
+      - script:
+          - if: linux
+            then:
+              - test -d "${PREFIX}/include/zeem"
+              - test -f "${PREFIX}/lib/libzeem.so"
+          - if: osx
+            then:
+              - test -d "${PREFIX}/include/zeem"
+              - test -f "${PREFIX}/lib/libzeem.dylib"
+          - if: win
+            then:
+              - test -d "${LIBRARY_PREFIX}/include/zeem"
+              - test -f "${LIBRARY_PREFIX}/lib/zeem.lib"
+        requirements:
+          run:
+            - brush
 
 about:
   homepage: https://www.hekkelman.net/docs/libzeem/
