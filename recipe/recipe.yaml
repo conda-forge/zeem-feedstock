@@ -58,7 +58,6 @@ outputs:
         # Patch version update may be breakable
         - ${{ pin_subpackage("zeem", upper_bound="x.x.x") }}
 
-
 about:
   homepage: https://www.hekkelman.net/docs/libzeem/
   repository: https://forge.hekkelman.net/maarten/zeem
