@@ -1,49 +1,67 @@
 context:
-  version: "2.3.0"
+  version: "2.3.1"
 
-package:
+recipe:
   name: libzeem
   version: ${{ version }}
 
 source:
   url: https://forge.hekkelman.net/maarten/zeem/archive/v${{ version }}.tar.gz
-  sha256: 006c7954b48061b86f61cb9988b32013e0c3729ce133cec4068231278b004854
+  sha256: 09c6f01b5db3f947ac9afc96450cb2a18600921079e80e27ca4ef875bc924adb
 
 build:
-  number: 0
+  number: 1
 
-requirements:
-  build:
-    - ${{ compiler("cxx") }}
-    - ${{ stdlib("c") }}
-    - cmake
-    - ninja
-    - pkg-config
-    - if: osx
-      then:
-        - clang-tools
-    - if: win
-      then:
-        - m2-sed
-  host:
-    - catch2
-    - fast_float
-    - howardhinnant_date
-    - libmcfp
-  run_exports:
-    # Patch version update may be breakable
-    - ${{ pin_subpackage("libzeem", upper_bound="x.x.x") }}
-  ignore_run_exports:
-    from_package:
-      - catch2
+outputs:
+  - package:
+      name: libzeem
+    requirements:
+      build:
+        - ${{ compiler("cxx") }}
+        - ${{ stdlib("c") }}
+        - cmake
+        - ninja
+        - pkg-config
+        - if: osx
+          then:
+            - clang-tools
+        - if: win
+          then:
+            - m2-sed
+      host:
+        - catch2
+        - fast_float
+        - howardhinnant_date
+        - libmcfp
+      run_exports:
+        # Patch version update may be breakable
+        - ${{ pin_subpackage("libzeem", upper_bound="x.x.x") }}
+      ignore_run_exports:
+        from_package:
+          - catch2
+    tests:
+      - package_contents:
+          include:
+            - zeem/*
+          lib:
+            - zeem
+        strict: true
 
-tests:
-  - package_contents:
-      include:
-        - zeem/*
-      lib:
-        - zeem
-    strict: true
+  - package:
+      name: zeem
+    requirements:
+      run:
+        - ${{ pin_subpackage("libzeem", upper_bound="x.x.x") }}
+      run_exports:
+        # Patch version update may be breakable
+        - ${{ pin_subpackage("zeem", upper_bound="x.x.x") }}
+    tests:
+      - package_contents:
+          include:
+            - zeem/*
+          lib:
+            - zeem
+        strict: true
 
 about:
   homepage: https://www.hekkelman.net/docs/libzeem/
