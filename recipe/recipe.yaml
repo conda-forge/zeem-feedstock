@@ -57,6 +57,13 @@ outputs:
       run_exports:
         # Patch version update may be breakable
         - ${{ pin_subpackage("zeem", upper_bound="x.x.x") }}
+    tests:
+      - package_contents:
+          include:
+            - zeem/*
+          lib:
+            - zeem
+        strict: true
 
 about:
   homepage: https://www.hekkelman.net/docs/libzeem/
