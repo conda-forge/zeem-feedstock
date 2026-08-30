@@ -1,5 +1,5 @@
 context:
-  version: "2.4.0"
+  version: "2.4.1"
 
 recipe:
   name: libzeem
@@ -7,7 +7,7 @@ recipe:
 
 source:
   url: https://forge.hekkelman.net/maarten/zeem/archive/v${{ version }}.tar.gz
-  sha256: 6724afb386afc281f699399e29e31b452cc4a9efd0d7e6ff9acb5bbbbef257bf
+  sha256: 0caa13e905894b93a9bef75270df2a8400924b6208514c6590e3f2d829da819f
 
 build:
   number: 0
