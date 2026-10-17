@@ -1,0 +1,3 @@
+# Provide system zoneinfo files so date::current_zone() can resolve
+# /etc/localtime during serializer tests on linux-ppc64le.
+tzdata
