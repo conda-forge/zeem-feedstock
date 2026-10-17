@@ -7,10 +7,10 @@ recipe:
 
 source:
   url: https://forge.hekkelman.net/maarten/zeem/archive/v${{ version }}.tar.gz
-  sha256: 0caa13e905894b93a9bef75270df2a8400924b6208514c6590e3f2d829da819f
+  sha256: 258dd23d698f6e1193ec9484f4593a335786153e442cf9fc2f01a3c9ecb73d08
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - package:
