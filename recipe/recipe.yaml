@@ -1,5 +1,5 @@
 context:
-  version: "2.4.3"
+  version: "2.4.4"
 
 recipe:
   name: libzeem
@@ -7,7 +7,7 @@ recipe:
 
 source:
   url: https://forge.hekkelman.net/maarten/zeem/archive/v${{ version }}.tar.gz
-  sha256: 57d600f466d04f028c459dc544730dd8018bfcc85ba323e7f7e4dfa0525df86c
+  sha256: 633e7b3e0714fca4d0efecc5590a071d9f6569ef2ffe6da0998a3250cca2e06d
 
 build:
   number: 0
@@ -23,7 +23,7 @@ outputs:
         - ${{ stdlib("c") }}
         - cmake
         - ninja
-        - pkg-config
+        - pkgconf
         - if: osx
           then:
             - clang-tools
