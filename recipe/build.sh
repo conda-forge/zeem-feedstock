@@ -9,7 +9,7 @@ if [[ ${target_platform} == "osx-"* ]]; then
 fi
 
 if [[ ${build_platform} != ${target_platform} ]]; then
-    extra_cmake_args="-DTEST_STD_CHRONO_FROM_STREAM_R=ON -DCMAKE_CROSSCOMPILING=ON"
+    extra_cmake_args="-DTEST_STD_CHRONO_FROM_STREAM_R=0 -DCMAKE_CROSSCOMPILING=ON"
 fi
 
 cmake -S . -B build -G Ninja ${CMAKE_ARGS} -DBUILD_TESTING=ON -DBUILD_SHARED_LIBS=ON ${extra_cmake_args}
